@@ -1,0 +1,18 @@
+#!/bin/bash
+
+  
+
+for ((i=800;i<=850;i++)); 
+do 
+	
+	PRODUCT=
+	IMAGESIZE="$i"
+	URL="https://logo.clearbit.com/$PRODUCT.com?size=$IMAGESIZE"
+	wget "$URL" -O - >> ~/pbindustries/misoWork/scraping/logos/
+	echo " - Page $i saved - "
+
+	# download all images
+	sort -u urls.txt | wget -i-
+
+  
+done
